@@ -1,0 +1,25 @@
+install mariaDB (mysql should work too)
+
+run mysql_secure_installation to lock down the install 
+
+
+ create database nmapData; 
+ 
+ create Admin user:
+ create user 'admin'@'localhost' IDENTIFIED BY '*****'; 
+ grant ALL PRIVILEGES on nmapData.* to 'admin'@'localhost' IDENTIFIED BY '*****';
+ flush privileges; 
+  
+  create Read Only user:
+ create user 'user'@'localhost' IDENTIFIED BY '*****';
+ grant SELECT ON nmapData.* to 'user'@'localhost' IDENTIFIED BY '*****';
+ flush privileges;
+ 
+ create Read-Write user
+ create user 'worker'@'localhost' IDENTIFIED BY '*****';
+ grant SELECT ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+ grant INSERT ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+ grant DELETE ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+ grant UPDATE ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+ flush privileges;
+  
