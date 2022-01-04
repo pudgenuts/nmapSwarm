@@ -10,16 +10,30 @@ run mysql_secure_installation to lock down the install
  grant ALL PRIVILEGES on nmapData.* to 'admin'@'localhost' IDENTIFIED BY '*****';
  flush privileges; 
   
-  create Read Only user:
- create user 'user'@'localhost' IDENTIFIED BY '*****';
- grant SELECT ON nmapData.* to 'user'@'localhost' IDENTIFIED BY '*****';
- flush privileges;
+create Read Only user:
+create user 'user'@'localhost' IDENTIFIED BY '*****';
+grant SELECT ON nmapData.* to 'user'@'localhost' IDENTIFIED BY '*****';
+flush privileges;
  
- create Read-Write user
- create user 'worker'@'localhost' IDENTIFIED BY '*****';
- grant SELECT ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
- grant INSERT ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
- grant DELETE ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
- grant UPDATE ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
- flush privileges;
+create Read-Write user
+create user 'worker'@'localhost' IDENTIFIED BY '*****';
+grant SELECT ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+grant INSERT ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+grant DELETE ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+grant UPDATE ON nmapData.* to 'worker'@'localhost' IDENTIFIED BY '*****';
+flush privileges;
   
+
+  
+ 
+create user 'user'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+grant SELECT ON nmapData.* to 'user'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+flush privileges;
+ 
+
+create user 'worker'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+grant SELECT ON nmapData.* to 'worker'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+grant INSERT ON nmapData.* to 'worker'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+grant DELETE ON nmapData.* to 'worker'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+grant UPDATE ON nmapData.* to 'worker'@'172.16.10.133' IDENTIFIED BY 'in2uanua';
+flush privileges;
